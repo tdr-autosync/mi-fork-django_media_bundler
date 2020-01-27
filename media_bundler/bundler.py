@@ -7,7 +7,6 @@ import os
 import shutil
 import subprocess
 import re
-from StringIO import StringIO
 
 from media_bundler.conf import bundler_settings
 from media_bundler.bin_packing import Box, pack_boxes
