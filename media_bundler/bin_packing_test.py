@@ -126,9 +126,9 @@ class BinPackingTest(unittest.TestCase):
     def testRandomNoOverlap(self):
         # Not having overlap is an important invariant we need to maintain.
         # This just checks it.
-        for _ in xrange(3):
+        for _ in range(3):
             boxes = [Box(random.randrange(1, 40), random.randrange(1, 40))
-                     for _ in xrange(100)]
+                     for _ in range(100)]
             (_, _, actual) = pack_boxes(boxes)
             self.assert_(check_no_overlap(actual))
 
