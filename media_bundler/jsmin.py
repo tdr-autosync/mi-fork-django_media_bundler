@@ -31,7 +31,7 @@
 # */
 
 def jsmin(js):
-    from StringIO import StringIO
+    from io import StringIO
     ins = StringIO(js)
     outs = StringIO()
     JavascriptMinify().minify(ins, outs)
