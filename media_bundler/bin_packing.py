@@ -3,7 +3,6 @@
 """A simple 2D bin packing algorithm for making sprites."""
 
 import math
-
 from itertools import chain
 
 
