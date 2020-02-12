@@ -18,6 +18,8 @@ from hashlib import md5, sha1
 import os
 import shutil
 
+from django.utils.six import iteritems
+
 from media_bundler.conf import bundler_settings
 
 
@@ -50,7 +52,7 @@ def write_versions(versions):
     _bundle_versions.update(versions)
     with open(bundler_settings.BUNDLE_VERSION_FILE, 'w') as output:
         versions_str = '\n'.join('    %r: %r,' % (name, vers)
-                                 for (name, vers) in versions.iteritems())
+                                 for (name, vers) in iteritems(versions))
         output.write('''\
 #!/usr/bin/env python
 

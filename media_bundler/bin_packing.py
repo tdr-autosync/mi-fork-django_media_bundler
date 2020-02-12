@@ -3,6 +3,7 @@
 """A simple 2D bin packing algorithm for making sprites."""
 
 import math
+from itertools import chain
 
 
 class Box(object):
@@ -62,7 +63,7 @@ def pack_boxes(boxes, max_width=None):
     return (max_width, y_off, packing)
 
 
-def boxes_overlap((x1, y1, box1), (x2, y2, box2)):
+def boxes_overlap(x1, y1, box1, x2, y2, box2):
     """Return True if the two boxes at (x1, y1) and (x2, y2) overlap."""
     left1 = x1
     top1 = y1
@@ -85,6 +86,6 @@ def check_no_overlap(packing):
         for right in packing:
             if left == right:
                 continue
-            if boxes_overlap(left, right):
+            if boxes_overlap(*chain(left, right)):
                 return False
     return True
