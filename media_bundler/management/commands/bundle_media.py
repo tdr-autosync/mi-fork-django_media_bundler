@@ -8,7 +8,6 @@ the project.
 """
 
 from django.core.management.base import NoArgsCommand
-from django.utils.six import itervalues
 
 from media_bundler.conf import bundler_settings
 from media_bundler import bundler
@@ -30,7 +29,7 @@ class Command(NoArgsCommand):
         # bundled by a CssBundle.
         def key(bundle):
             return -int(isinstance(bundle, bundler.PngSpriteBundle))
-        bundles = sorted(itervalues(bundler.get_bundles()), key=key)
+        bundles = sorted(bundler.get_bundles().values(), key=key)
         for bundle in bundles:
             bundle.make_bundle(versioner)
         if versioner:

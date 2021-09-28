@@ -8,8 +8,6 @@ import shutil
 import subprocess
 import re
 
-from django.utils.six import iteritems
-
 from media_bundler.conf import bundler_settings
 from media_bundler.bin_packing import Box, pack_boxes
 from media_bundler.jsmin import jsmin
@@ -230,7 +228,7 @@ class PngSpriteBundle(Bundle):
         # We try to format it nicely here in case the user actually looks at it.
         # If he wants it small, he'll bundle it up in his CssBundle.
         css_class = self.css_class_name(name)
-        css_propstr = "".join("     %s: %s;\n" % p for p in iteritems(props))
+        css_propstr = "".join("     %s: %s;\n" % p for p in props.items())
         return "\n.%s {\n%s}\n" % (css_class, css_propstr)
 
 

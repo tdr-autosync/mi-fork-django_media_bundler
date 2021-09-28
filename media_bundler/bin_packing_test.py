@@ -5,8 +5,6 @@
 import random
 import unittest
 
-from django.utils.six.moves import range
-
 from bin_packing import Box, pack_boxes, check_no_overlap
 
 
