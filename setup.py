@@ -11,7 +11,7 @@ except ImportError:
 import media_bundler
 
 setup(
-    name='django-media-bundler',
+    name='autosync-django-media-bundler',
     version=media_bundler.__version__,
     author='Reid Kleckner',
     author_email='rnk@mit.edu',
